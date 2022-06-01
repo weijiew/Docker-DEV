@@ -4,6 +4,10 @@ FROM ubuntu:focal
 ARG TZ=America/New_York
 ENV TZ=${TZ}
 
+# Change the source list 
+RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
+
+
 # include manual pages and documentation
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update &&\
